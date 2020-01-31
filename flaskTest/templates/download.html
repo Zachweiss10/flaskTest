@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} Download Page {% endblock %}
+{% block content%}
+<p1>This is a list of all files that have been uploaded</p1>
+{% for file in content %}
+      <li><a href= "./uploads/{{file}}" download>
+      	<input type="submit" value="Download {{file}}">
+      </li>
+  {% endfor %}
+{% endblock %}

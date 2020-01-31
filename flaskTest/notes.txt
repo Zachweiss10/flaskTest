@@ -1,0 +1,7 @@
+#!bin/bash
+docker build --tag flasktestapp . 
+docker run --name flasktestapp -p 5001:5001 flasktestapp
+
+#lists all docker images that exist
+Docker ps -a
+Docker rm <name>

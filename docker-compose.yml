@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: flasktestapp
+    spec:
+      containers:
+      - name: flask
+        image: flasktestapp
+        ports:
+        - containerPort: 5000
