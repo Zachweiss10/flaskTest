@@ -2,9 +2,12 @@
 {% block title %} Download Page {% endblock %}
 {% block content%}
 <p1>This is a list of all files that have been uploaded</p1>
-{% for file in content %}
-      <li><a href= "./uploads/{{file}}" download>
-      	<input type="submit" value="Download {{file}}">
+<p2>{{file}}</p2>
+{%for file in content %}
+      <li>
+
+      	<button type="button" onclick="downloadThis({{file}})" name="Download">{{file}}</button>
       </li>
-  {% endfor %}
+
+ {% endfor %}
 {% endblock %}

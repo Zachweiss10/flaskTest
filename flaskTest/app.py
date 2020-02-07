@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, redirect, url_for, render_template, request
+from flask import Flask, flash, redirect, url_for, render_template, request, send_file
 app = Flask(__name__)
 
 app.config["UPLOAD_FOLDER"] = "./uploads"
@@ -22,8 +22,13 @@ def upload():
 
 @app.route("/download")
 def download():
-    uploadedFiles = [f for f in os.listdir("./uploads")]
+    uploadedFiles = [f for f in os.listdir("./uploads/")]
     return render_template("/download.html", content=uploadedFiles)
+
+def downloadThis(filename):
+    path = "/uploads/"+filename
+    send_file(path, as_attachment=True)
+    return
 
 @app.route("/aboutUs")
 def aboutUs():
